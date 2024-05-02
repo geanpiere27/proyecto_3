@@ -1,69 +1,28 @@
+# El operador morsa (`:=`), también conocido como "operador de asignación de expresión", es una característica
+# introducida en Python 3.8. Se utiliza para asignar un valor a una variable como parte de una expresión, y al mismo
+# tiempo, permite utilizar ese valor en la misma expresión. Es útil en situaciones donde deseas realizar una operación
+# y asignar el resultado a una variable en una sola línea. Aquí tienes un ejemplo y un problema que podrías resolver 
+#con el operador morsa:
 
-#1. **Estructuras condicionales (if-elif-else)**:
-   
-#Problema: Escribe un programa que determine si un número es positivo, negativo o cero.
-
-num = float(input("Ingrese un número: "))
-if num > 0:
-       print("El número es positivo.")
-elif num < 0:
-       print("El número es negativo.")
-else:
-       print("El número es cero.")
+#Ejemplo:
 
 
-#2. Bucles (for, while):
-#Problema: Suma los primeros n números naturales.
-
-n = int(input("Ingrese un número: "))
-suma = 0
-for i in range(1, n+1):
-       suma += i
-print("La suma de los primeros", n, "números naturales es:", suma)
+# Ejemplo de operador morsa
+x = 5
+if (y := x + 1) > x:
+    print("El valor de y es:", y)
 
 
-#3.Bucles (break, continue):
+#Problema 1:
 
-#Problema: Encuentra el primer número positivo divisible por 17 entre 1 y 100.
+#Escribe un programa que pida al usuario ingresar dos números y luego imprima el mayor de los dos números junto con su diferencia.
 
-for i in range(1, 101):
-       if i % 17 == 0:
-           print("El primer número positivo divisible por 17 es:", i)
-           break
+# Problema con operador morsa
+num1 = float(input("Ingrese el primer número: "))
+num2 = float(input("Ingrese el segundo número: "))
 
+mayor = num1 if (num1 := num1 if num1 > num2 else num2) > num2 else num2
+diferencia = abs(num1 - num2)
 
-#4.Manejo de excepciones (try-except):
-
-# Problema: Manejar la división por cero.
-   
-try:
-       num = int(input("Ingrese un número: "))
-       result = 10 / num
-       print("El resultado de la división es:", result)
-except ZeroDivisionError:
-       print("Error: No se puede dividir entre cero.")
-except ValueError:
-       print("Error: Ingrese un número válido.")
-
-
-# 5.Listas por comprensión:
-
-# Problema: Generar una lista de los cuadrados de los números del 1 al 10.
-
-squares = [x**2 for x in range(1, 11)]
-print("Los cuadrados de los números del 1 al 10 son:", squares)
-
-
-#6.Funciones recursivas:
-
-# Problema: Calcular el factorial de un número.
-
-def factorial(n):
-       if n == 0:
-           return 1
-       else:
-           return n * factorial(n-1)
-
-num = int(input("Ingrese un número para calcular su factorial: "))
-print("El factorial de", num, "es:", factorial(num))
-
+print("El mayor número es:", mayor)
+print("La diferencia entre los dos números es:", diferencia)
